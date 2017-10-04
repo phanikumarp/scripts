@@ -1,3 +1,4 @@
+Check wiki [pages](https://github.com/OpsMx/scripts/wiki) also
 #### How to run `autopipeline.jar`?
 1. Run `java -jar autopipeline.jar`
 2. Enter "Application name" and "Pipeline name"
