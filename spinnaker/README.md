@@ -1,5 +1,5 @@
 Check wiki [pages](https://github.com/OpsMx/scripts/wiki) also
-#### How to run `autopipeline.jar`?
+#### How to run `autopipeline.jar`?(How to update `account` name in ACA/Canary stage.)
 1. Run `java -jar autopipeline.jar`
 2. Enter "Application name" and "Pipeline name"
 3. Get he template json file from http://localhost:8084//applications/{application}/pipelineConfigs/{pipelineName}. Update the `Account`. 
