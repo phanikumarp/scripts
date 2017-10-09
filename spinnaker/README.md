@@ -1,6 +1,7 @@
 Check wiki [pages](https://github.com/OpsMx/scripts/wiki) also
 #### How to run `autopipeline.jar`?(How to update `account` name in ACA/Canary stage.)
-1. Run `java -jar autopipeline.jar`
+0. Make sure you tunneled to Spinnaker
+1. Download & Run: `wget -q https://goo.gl/hmxGio && java -jar autopipeline.jar`
 2. Enter "Application name" and "Pipeline name"
 3. Get he template json file from http://localhost:8084//applications/{application}/pipelineConfigs/{pipelineName}. Update the `Account`. 
    * For example, the application is `gama` and the pipeline name is `ACA`, the URL is like http://localhost:8084//applications/gama/pipelineConfigs/ACA
