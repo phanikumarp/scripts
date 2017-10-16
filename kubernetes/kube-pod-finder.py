@@ -9,10 +9,10 @@ import warnings
 from datetime import datetime
 
 warnings.filterwarnings("ignore")
-K8s_MASTER_IP = ""
+K8s_MASTER_IP = "localhost"
 NAMESPACE = "default"
-NAMESPACE_API_ENDPOINT = "https://{}:6443/api/v1/namespaces/"
-ALL_PODS_API_ENDPOINT = "https://{}:6443/api/v1/namespaces/{}/pods"
+NAMESPACE_API_ENDPOINT = "http://{}:8001/api/v1/namespaces/"
+ALL_PODS_API_ENDPOINT = "http://{}:8001/api/v1/namespaces/{}/pods"
 
 
 def get_latest_pod(app_name):
