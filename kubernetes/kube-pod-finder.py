@@ -7,6 +7,7 @@ import requests
 import argparse
 import warnings
 from datetime import datetime
+import json
 
 warnings.filterwarnings("ignore")
 K8s_IP = "localhost"
@@ -23,31 +24,44 @@ def get_latest_pod(obj_name):
     cluster_name = None
     for items in all_pods["items"]:
         try:
-            app_name = items["metadata"]["labels"]["app"]
-        except KeyError:
-            pass
-        try:
             cluster_name = items["metadata"]["labels"]["cluster"]
         except KeyError:
             pass
-        if app_name == obj_name or cluster_name == obj_name:
+        try:
+            replication_con = items["metadata"]["labels"]["replication-controller"]
+        except KeyError:
+            pass
+        if cluster_name == obj_name or replication_con == obj_name:
             times = items["metadata"]["creationTimestamp"].replace("T", " ").replace("Z", "")
             name = items["metadata"]["name"]
+            app_name = items["metadata"]["labels"]["app"]
             pod_time_obj.setdefault(datetime.strptime(times, '%Y-%m-%d %H:%M:%S'), name)
-    for x in reversed(pod_time_obj.keys()):
-        print pod_time_obj[x], "- "+str(x)
+    try:
+        latest_pod = pod_time_obj[max(pod_time_obj)]
+    except ValueError:
+        exit(0)
+    data = [
+        {
+            "applicationName": app_name,
+            "podName": latest_pod,
+            "creationTimestamp": str(max(pod_time_obj))
+        }
+    ]
+    print json.dumps(data)
+    #for x in reversed(pod_time_obj.keys()):
+        #print pod_time_obj[x]
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Latest pods finder in K8s cluster. \
                                                     NOTE: Please specify 'K8s_IP' in script")
-    parser.add_argument("-c", action="store", dest="cluster_name", help="Cluster name")
-    parser.add_argument("-a", action="store", dest="app_name", help="Application name")
+    parser.add_argument("-c", action="store", dest="cluster_name", help="cluster name or cluster name with version")
     options = parser.parse_args()
-    if options.cluster_name and options.app_name:
-        print "[!] Please specify any one, 'application name' or 'cluster name'"
-    if options.app_name:
-        get_latest_pod(options.app_name)
-    elif options.cluster_name:
-        get_latest_pod(options.cluster_name)
+    if options.cluster_name:
+        if "-current" in options.cluster_name:
+            name = options.cluster_name.strip("-current")
+        else:
+            name = options.cluster_name
+        get_latest_pod(name)
     else:
-        print "[!] Please specify 'application name' or 'cluster name'. Help-> python kube-pod-finder.py -h"
+        print "[!] Please specify 'cluster name'. Help-> python kube-pod-finder.py -h"
