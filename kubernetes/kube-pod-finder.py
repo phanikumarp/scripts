@@ -35,7 +35,8 @@ def get_latest_pod(obj_name):
             times = items["metadata"]["creationTimestamp"].replace("T", " ").replace("Z", "")
             name = items["metadata"]["name"]
             app_name = items["metadata"]["labels"]["app"]
-            pod_time_obj.setdefault(datetime.strptime(times, '%Y-%m-%d %H:%M:%S'), name)
+            replication_con = items["metadata"]["labels"]["replication-controller"]
+            pod_time_obj.setdefault(datetime.strptime(times, '%Y-%m-%d %H:%M:%S'), [name, replication_con])
     try:
         latest_pod = pod_time_obj[max(pod_time_obj)]
     except ValueError:
@@ -43,7 +44,8 @@ def get_latest_pod(obj_name):
     data = [
         {
             "applicationName": app_name,
-            "podName": latest_pod,
+            "podName": latest_pod[0],
+            "sgName":latest_pod[1],
             "creationTimestamp": str(max(pod_time_obj))
         }
     ]
