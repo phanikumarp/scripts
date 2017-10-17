@@ -1,7 +1,7 @@
 # Kubernetes
-Check [wiki](https://github.com/OpsMx/scripts/wiki/Kubernetes) for info 
+Check [wiki](https://github.com/OpsMx/scripts/wiki/Kubernetes) for more info 
 
-### Latest PODs finder from `cluster name` or `application name` (kube-pod-finder.py)
+### Latest PODs finder from `cluster name` or `cluster name with version` (kube-pod-finder.py)
   * ##### Help
   ```
   python kube-pod-finder.py -h
