@@ -1,0 +1,7 @@
+init_config:
+
+instances:
+    -   url: https://localhost:1936/stats
+        #username: username
+        #password: password
+        
