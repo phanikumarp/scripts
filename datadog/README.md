@@ -9,12 +9,24 @@
 3. Check the service is properly enabled or not: `sudo service datadog-agent info` (You should see service instance as `[OK]`)
 
 #### Get `yaml` files
-   * apache.yaml -> `wget -qO /etc/dd-agent/conf.d/apache.yaml https://raw.githubusercontent.com/OpsMx/scripts/master/datadog/apache.yaml`
-   * haproxy.yaml -> `wget -qO /etc/dd-agent/conf.d/haproxy.yaml https://raw.githubusercontent.com/OpsMx/scripts/master/datadog/haproxy.yaml`
-   * master_hbase.yaml -> `wget -qO /etc/dd-agent/conf.d/master_hbase.yaml https://raw.githubusercontent.com/OpsMx/scripts/master/datadog/hbase_master.yaml`
-   * postgres.yaml -> `wget -qO /etc/dd-agent/conf.d/postgres.yaml https://raw.githubusercontent.com/OpsMx/scripts/master/datadog/postgres.yaml`
-   * redis.yaml -> `wget -qO /etc/dd-agent/conf.d/redis.yaml https://raw.githubusercontent.com/OpsMx/scripts/master/datadog/redisdb.yaml`
-   * tomcat.yaml -> `wget -qO /etc/dd-agent/conf.d/tomcat.yaml https://raw.githubusercontent.com/OpsMx/scripts/master/datadog/tomcat.yaml`
+<table>
+ <tr>
+   <td>apache.yaml<td>wget -qO /etc/dd-agent/conf.d/apache.yaml https://raw.githubusercontent.com/OpsMx/scripts/master/datadog/apache.yaml
+ </tr>
+ <tr>
+   <td>haproxy.yaml</td> <td>wget -qO /etc/dd-agent/conf.d/haproxy.yaml https://raw.githubusercontent.com/OpsMx/scripts/master/datadog/haproxy.yaml</td>
+  </tr>
+ <tr>
+   <td>master_hbase.yaml</td><td>wget -qO /etc/dd-agent/conf.d/master_hbase.yaml https://raw.githubusercontent.com/OpsMx/scripts/master/datadog/hbase_master.yaml</td>
+  </tr>
+ <tr>
+   <td>postgres.yaml</td><td>`wget -qO /etc/dd-agent/conf.d/postgres.yaml https://raw.githubusercontent.com/OpsMx/scripts/master/datadog/postgres.yaml</td>
+ </tr>
+ <tr>
+   <td>redis.yaml</td><td>wget -qO /etc/dd-agent/conf.d/redis.yaml https://raw.githubusercontent.com/OpsMx/scripts/master/datadog/redisdb.yaml</td>
+  </tr> 
+  <tr>
+   <td>tomcat.yaml</td><td>wget -qO /etc/dd-agent/conf.d/tomcat.yaml https://raw.githubusercontent.com/OpsMx/scripts/master/datadog/tomcat.yaml</td>
 
 
 ### Info
@@ -44,3 +56,8 @@
   <td>4</td><td>wiko@zhorachu.com</td><td>Active on 24-Oct-2017/ Expire in 5 Days</td>
   </tr>
  </table>
+
+### Uninstall Agent
+```
+sudo apt-get --purge remove datadog-agent -y
+```
