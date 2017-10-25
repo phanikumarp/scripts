@@ -3,7 +3,7 @@
 FIND_IP="http://checkip.amazonaws.com/"
 PUBLIC_IP=`curl -s "$FIND_IP"`
 echo "Your Public IP: $PUBLIC_IP"
-echo "Don't run the script with 'sudo'."
+echo "NOTE: Don't run the script with 'sudo'. Installation will start in 5 seconds"
 sleep 5
 sudo apt-get update
 sudo apt-get upgrade -y
