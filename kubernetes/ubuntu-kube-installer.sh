@@ -40,10 +40,10 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl taint nodes --all node-role.kubernetes.io/master-
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-kubectl create -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel-rbac.yml
+#kubectl create -f https://raw.githubusercontent.com/coreos/flannel/v0.8.0-rc2/Documentation/kube-flannel-rbac.yml
 kubectl create clusterrolebinding anonymous-cluster-admin-binding --clusterrole=cluster-admin --user=system:anonymous
 kubectl get pods --all-namespaces
 echo ""
 kubectl cluster-info
 echo ""
-sudo docker run --net=host --volume=/var/lib/docker/:/var/lib/docker:ro --volume=/sys/fs/cgroup/:/sys/fs/cgroup/:ro -it --name=opsmx-collector -d opsmx11/tcollector
+#sudo docker run --net=host --volume=/var/lib/docker/:/var/lib/docker:ro --volume=/sys/fs/cgroup/:/sys/fs/cgroup/:ro -it --name=opsmx-collector -d opsmx11/tcollector
