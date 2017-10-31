@@ -65,7 +65,7 @@
   <td>3</td><td>pohisafe@morsin.com</td><td>Expired</td>
   </tr>
  <tr>
-  <td>4</td><td>wiko@zhorachu.com</td><td>Active on 24-Oct-2017/ Expire in 5 Days</td>
+  <td>4</td><td>wiko@zhorachu.com</td><td>Expired</td>
   </tr>
  </table>
 
