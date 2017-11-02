@@ -70,6 +70,11 @@
   <tr>
   <td>5</td><td>mivegodom@reftoken.net</td><td>Nov 1 2017</td>
   </tr>
+  /tr>
+  <tr>
+  <td>6</td><td>puxawit@nezdiro.org</td><td>Nov 2 2017/K8s Blue-Green</td>
+  </tr>
+  
  </table>
 
 ### Uninstall Agent
