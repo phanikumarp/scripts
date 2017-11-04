@@ -61,7 +61,7 @@ if __name__ == "__main__":
     options = parser.parse_args()
     if options.cluster_name:
         if "-current" in options.cluster_name:
-            name = options.cluster_name.strip("-current")
+            name = options.cluster_name.replace("-current")
         else:
             name = options.cluster_name
         get_latest_pod(name)
