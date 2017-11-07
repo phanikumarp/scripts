@@ -5,7 +5,7 @@ Download -> wget -qO aws_instances.py https://raw.githubusercontent.com/OpsMx/sc
 
 * Help
 ```
-python aws_instances.py -h
+python2 aws_instances.py -h
 usage: aws_instances.py [-h] [-a ACCESS_KEY] [-s SECRET_KEY] [-r REGION]
               [-A AUTO_SCALING_GROUP] [-p APPLICATION_NAME]
 
@@ -26,12 +26,12 @@ optional arguments:
   * If Keys are valid, it will display `Scucces`
   * If keys are invalid, it will display `Failed to fetch`
 ```
-python aws.py -a <AWS_ACCESS_KEY> -s <AWS_SECRET_KEY> -r <AWS_REGION>
+python2 aws.py -a <AWS_ACCESS_KEY> -s <AWS_SECRET_KEY> -r <AWS_REGION>
 Success
 ```
 * ##### Get Auto Scaling Group's instances by `Application Name`. [Gets latest server group]
 ```
-python aws.py -a XXXXXXXXXXXXXX -s YYYYYYYYYYYY -r us-west-32 -p test54
+python2 aws.py -a XXXXXXXXXXXXXX -s YYYYYYYYYYYY -r us-west-32 -p test54
 {
    "createdTime":"20X7-XX-07TXX:35:12.328Z",
    "instances":[
@@ -48,7 +48,7 @@ python aws.py -a XXXXXXXXXXXXXX -s YYYYYYYYYYYY -r us-west-32 -p test54
 * #####  Get Auto Scaling Group's instances by `Server Group Name` 
 ```
 
-python aws.py -a XXXXXXXXXXXXXX -s YYYYYYYYYYYY -r us-west-23 -A test54
+python2 aws.py -a XXXXXXXXXXXXXX -s YYYYYYYYYYYY -r us-west-23 -A test54
 {
    "createdTime":"20X7-XX-07TXX:35:12.328Z",
    "instances":[
