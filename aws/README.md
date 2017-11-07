@@ -22,7 +22,7 @@ optional arguments:
   -p APPLICATION_NAME   Spinnaker application name
 
 ```
-* Check Keys are working or not
+* AWS Keys validation
   * If Keys are valid, it will display `Scucces`
   * If keys are invalid, it will display `Failed to fetch`
 ```
@@ -61,4 +61,30 @@ python2 aws.py -a XXXXXXXXXXXXXX -s YYYYYYYYYYYY -r us-west-23 -A test54
    ],
    "name":"canaryapp-XX-dev-XX-v001"
 }
+```
+2. ### `aws_credentials_check.py` [AWS Credentials Validator]
+##### *Dependency -> Install `boto` Client `sudo pip2 install boto`
+Get the script ->  `wget -qO aws_credentials_check.py https://raw.githubusercontent.com/OpsMx/scripts/master/aws/aws_credentials_check.py`
+* On success it will display `Autoscaling` group info in `json` formate
+* On failure it will display `Failed`
+```
+$ python2 aws_credentials_check.py -r <REGION> -a <ACESS-KEY>- -s <SECRET-KEY>
+[
+   {
+      "configuration":"aaaa-evt-v006-1010051455",
+      "name":"aaaaa-evt-v006",
+      "loadBalancer":[
+         "aaaaa-evtreg"
+      ]
+   },
+   {
+      "configuration":"bbbb-evt-v007-101717062405",
+      "name":"bbbb-evt-v007",
+      "loadBalancer":[
+         "bbbb-evtreg"
+      ]
+   }
+]
+$ python2 aws_credentials_check.py -r <REGION> -a <ACESS KEY> -s <SECRET-KEY>
+Failed
 ```
