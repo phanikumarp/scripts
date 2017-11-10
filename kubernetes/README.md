@@ -45,7 +45,7 @@ optional arguments:
 ```
 * ##### Gets all pods in `current deployed` cluster
 ```
-root@ultron:/home/veeru/Desktop# python kube.py -C radium-prod-current
+root@ultron:/# python2 pods-finder.py -C radium-prod-current
 [
    {
       "applicationName":"radium",
@@ -81,7 +81,7 @@ root@ultron:/home/veeru/Desktop# python kube.py -C radium-prod-current
 ```
 * ##### Gets all pods in `specified` cluster
 ```
-root@ultron:/home/veeru/Desktop# python kube.py -c radium-prod-v001
+root@ultron:/# python2 pods-finder.py -c radium-prod-v001
 [
    {
       "applicationName":"radium",
