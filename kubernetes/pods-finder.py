@@ -1,6 +1,6 @@
 '''
 Author : OpsMx
-Description :  Latest pods finder in K8s cluster
+Description :  Retrives all pods in cluster/Replicasets
 '''
 
 import requests
@@ -58,7 +58,7 @@ class K8s_API:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Latest pods finder in K8s cluster. \
+    parser = argparse.ArgumentParser(description="Retrives all pods in cluster/Replicasets. \
                                                     NOTE: Please specify 'K8s_IP' in script")
     parser.add_argument("-c", action="store", dest="cls_name", help="Gets the pods in this cluster")
     parser.add_argument("-C", action="store", dest="current_cls_name", help="Gets the pods in 'current' cluster")
