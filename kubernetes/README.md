@@ -1,7 +1,7 @@
 # Kubernetes
 Check [wiki](https://github.com/OpsMx/scripts/wiki/Kubernetes) for more info 
 
-* Automated K8s installer script - `wget -qO kube-install.sh https://goo.gl/j6LAzU && sh kube-install.sh`
+* `curl https://raw.githubusercontent.com/OpsMx/scripts/master/kubernetes/ubuntu-kube-installer.sh | bash`
 
 ### Latest PODs finder from `cluster name` or `cluster name with version` (kube-pod-finder.py)
   * ##### Help
