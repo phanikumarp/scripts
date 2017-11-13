@@ -12,3 +12,6 @@ Check wiki [pages](https://github.com/OpsMx/scripts/wiki) also
    1. Place [`settings.js`](https://github.com/OpsMx/scripts/blob/master/spinnaker/settings.js) in `~/.hal/default/profiles/`
       * Make sure you have `var canaryEnabled = true;` at line [15](https://github.com/OpsMx/scripts/blob/84c046d1623446bf6e0aa3080b027053071bf4e6/spinnaker/settings.js#L15) and `canary: canaryEnabled,` at line [137](https://github.com/OpsMx/scripts/blob/84c046d1623446bf6e0aa3080b027053071bf4e6/spinnaker/settings.js#L137)
    3. Edit [`orca-local.yml`](https://github.com/OpsMx/scripts/blob/master/spinnaker/orca-local.yml)-> `mine` URL and place the file in `~/.hal/default/profiles/`
+   
+##### Get `startspinnaker.sh`
+ * `wget -qO startspinnaker.sh https://raw.githubusercontent.com/OpsMx/scripts/master/spinnaker/startspinnaker.sh`
