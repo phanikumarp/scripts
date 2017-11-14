@@ -8,7 +8,8 @@ import json
 import argparse
 import os
 import yaml
-
+import warnings
+warnings.filterwarnings("ignore")
 try:
     import kubernetes
 except ImportError:
