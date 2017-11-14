@@ -4,6 +4,7 @@ Check [wiki](https://github.com/OpsMx/scripts/wiki/Kubernetes) for more info
 * `curl https://raw.githubusercontent.com/OpsMx/scripts/master/kubernetes/ubuntu-kube-installer.sh | bash`
 ## Retrieves PODS in cluster/Replicasets (Version 2)
 ##### **Dependency: `kubernetes` Python module required: `sudo pip2 install kubernetes`
+##### To download,RUN-> wget -qO pods-finder.py https://raw.githubusercontent.com/OpsMx/scripts/master/kubernetes/pods-finder2.py
 * Help
 ```
 ubuntu@opsmx:~$ python2 pods-finder.py -h
