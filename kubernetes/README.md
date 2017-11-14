@@ -2,8 +2,81 @@
 Check [wiki](https://github.com/OpsMx/scripts/wiki/Kubernetes) for more info 
 
 * `curl https://raw.githubusercontent.com/OpsMx/scripts/master/kubernetes/ubuntu-kube-installer.sh | bash`
+## Retrieves PODS in cluster/Replicasets (Version 2)
+##### **Dependency: `kubernetes` Python module required: `sudo pip2 install kubernetes`
+* Help
+```
+ubuntu@opsmx:~$ python2 pods-finder.py -h
+usage: pods-finder.py [-h] [-c CLS_NAME] [-C CURRENT_CLS_NAME]
+                      [-f CONFIG_LOCATION] [-n NAMESPACE] [-v]
 
-### Latest PODs finder from `cluster name` or `cluster name with version` (kube-pod-finder.py)
+Retrives pods in cluster/Replicasets. NOTE: Please specify kube config file
+location
+
+optional arguments:
+  -h, --help           show this help message and exit
+  -c CLS_NAME          Gets the pods in this cluster
+  -C CURRENT_CLS_NAME  Gets the pods in 'current' cluster
+  -f CONFIG_LOCATION   kube config location. Default:~/.kube/config
+  -n NAMESPACE         Namespace, Default:'default'
+  -v                   Validates the config file
+```
+* Config file and namespace Validation
+```
+ubuntu@ghost:~$ python2 pods-finder.py -v
+Success
+```
+* Specify Namespace and Kube config location
+  * NOTE: By default the script assumes kube config file location is at `~/.kube/config`
+  * NOTE: By default the script assumes the namespace as `default`
+```
+ubuntu@opsmx:~$ python2 pods-finder.py -n default -f /home/ubuntu/.kube/config -C oxygen-prod-current
+[
+   {
+      "applicationName":"oxygen",
+      "creationTimestamp":"2017-11-14 10:46:47+00:00",
+      "sgName":"oxygen-prod-v007",
+      "podName":"oxygen-prod-v007-lwwjz"
+   }
+]
+```
+* ##### Gets all pods in `current deployed` cluster
+```
+root@ultron:/# python2 pods-finder.py -C radium-prod-current
+[
+   {
+      "applicationName":"radium",
+      "creationTimestamp":"2017-11-10T10:10:53Z",
+      "sgName":"radium-prod-v003",
+      "podName":"radium-prod-v003-779wx"
+   },
+   {
+      "applicationName":"radium",
+      "creationTimestamp":"2017-11-10T10:10:53Z",
+      "sgName":"radium-prod-v003",
+      "podName":"radium-prod-v003-b46lr"
+   }
+]
+```
+* ##### Gets all pods in `specified` cluster
+```
+root@ultron:/# python2 pods-finder.py -c radium-prod-v001
+[
+   {
+      "applicationName":"radium",
+      "creationTimestamp":"2017-11-10T08:13:59Z",
+      "sgName":"radium-prod-v001",
+      "podName":"radium-prod-v001-bpfqt"
+   },
+   {
+      "applicationName":"radium",
+      "creationTimestamp":"2017-11-10T08:13:59Z",
+      "sgName":"radium-prod-v001",
+      "podName":"radium-prod-v001-dz8d6"
+   }
+]
+```
+## Latest PODs finder from `cluster name` or `cluster name with version` (kube-pod-finder.py)[** OLDER VERSION **]
   * ##### Help
   ```
   python kube-pod-finder.py -h
@@ -29,7 +102,7 @@ Check [wiki](https://github.com/OpsMx/scripts/wiki/Kubernetes) for more info
   * Please specify `K8s_IP` in the script. If needed specify `NAMESPACE` also.
   * Get the script ---> `wget -qO kube-pod-finder.py https://goo.gl/62Gu11`
 
-### Retrives PODs in the `cluster` (pods-finder.py)
+## Retrives PODs in the `cluster` (pods-finder.py) [** OLDER VERSION **]
 * ##### Dowload -> `wget -qO pods-finder.py https://goo.gl/jqs2GV`
 * ##### Help
 ```
@@ -58,24 +131,6 @@ root@ultron:/# python2 pods-finder.py -C radium-prod-current
       "creationTimestamp":"2017-11-10T10:10:53Z",
       "sgName":"radium-prod-v003",
       "podName":"radium-prod-v003-b46lr"
-   },
-   {
-      "applicationName":"radium",
-      "creationTimestamp":"2017-11-10T10:10:53Z",
-      "sgName":"radium-prod-v003",
-      "podName":"radium-prod-v003-dd88f"
-   },
-   {
-      "applicationName":"radium",
-      "creationTimestamp":"2017-11-10T10:10:53Z",
-      "sgName":"radium-prod-v003",
-      "podName":"radium-prod-v003-h5cxt"
-   },
-   {
-      "applicationName":"radium",
-      "creationTimestamp":"2017-11-10T10:10:53Z",
-      "sgName":"radium-prod-v003",
-      "podName":"radium-prod-v003-kw4wc"
    }
 ]
 ```
@@ -94,24 +149,6 @@ root@ultron:/# python2 pods-finder.py -c radium-prod-v001
       "creationTimestamp":"2017-11-10T08:13:59Z",
       "sgName":"radium-prod-v001",
       "podName":"radium-prod-v001-dz8d6"
-   },
-   {
-      "applicationName":"radium",
-      "creationTimestamp":"2017-11-10T08:13:59Z",
-      "sgName":"radium-prod-v001",
-      "podName":"radium-prod-v001-fcpf2"
-   },
-   {
-      "applicationName":"radium",
-      "creationTimestamp":"2017-11-10T08:13:59Z",
-      "sgName":"radium-prod-v001",
-      "podName":"radium-prod-v001-fgt4r"
-   },
-   {
-      "applicationName":"radium",
-      "creationTimestamp":"2017-11-10T08:13:59Z",
-      "sgName":"radium-prod-v001",
-      "podName":"radium-prod-v001-mhl9f"
    }
 ]
 ```
