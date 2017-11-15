@@ -24,7 +24,7 @@ optional arguments:
 ```
 * Config file and namespace Validation
 ```
-ubuntu@ghost:~$ python2 pods-finder.py -v
+ubuntu@ghost:~$ python2 pods-finder.py -v -f /path/to/config/file
 Success
 ```
 * Specify Namespace and Kube config location
