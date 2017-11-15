@@ -43,7 +43,7 @@ ubuntu@opsmx:~$ python2 pods-finder.py -n default -f /home/ubuntu/.kube/config -
 ```
 * ##### Gets all pods in `current deployed` cluster
 ```
-root@ultron:/# python2 pods-finder.py -C radium-prod-current
+root@ultron:/# python2 pods-finder.py -n default -f /home/ubuntu/.kube/config -C radium-prod-current
 [
    {
       "applicationName":"radium",
@@ -61,7 +61,7 @@ root@ultron:/# python2 pods-finder.py -C radium-prod-current
 ```
 * ##### Gets all pods in `specified` cluster
 ```
-root@ultron:/# python2 pods-finder.py -c radium-prod-v001
+root@ultron:/# python2 pods-finder.py -n default -f /home/ubuntu/.kube/config -c radium-prod-v001
 [
    {
       "applicationName":"radium",
