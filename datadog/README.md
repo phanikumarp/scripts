@@ -62,10 +62,10 @@
   <td>2</td><td>pohisafe@morsin.com</td><td>Expired</td>
   </tr>
  <tr>
-  <td>3/td><td>wiko@zhorachu.com</td><td>Expired</td>
+  <td>3</td><td>wiko@zhorachu.com</td><td>Expired</td>
   </tr>
   <tr>
-  <td>4/td><td>mivegodom@reftoken.net</td><td>Nov 1 2017</td>
+  <td>4</td><td>mivegodom@reftoken.net</td><td>Nov 1 2017</td>
   </tr>
   <tr>
   <td>5</td><td>liza@ethersports.org</td><td>Nov 16 2107</td>
